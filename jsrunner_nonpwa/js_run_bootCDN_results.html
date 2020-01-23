@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8"/>
+    <meta charset="UTF-8"/>
+      <title>JS_Run_2_It!</title>
+	<!--  
+  function execute(code) {
+  // this is the recommended way of executing code with Function
+  return Function('"use strict";return ' + code)();
+}
+ -->
+	  
+	  
+    <script>
+      window.onload = function () {
+        var runScript = function execute(code) {
+          try {
+            return Function('"use strict";return ' + document.getElementById("scriptArea").value)();
+          } catch(e) {
+            alert(e.description || e);
+          }
+        };
+
+        document.getElementById("runButtonTop").onclick = runScript;
+        document.getElementById("runButtonBottom").onclick = runScript;
+
+      };
+    </script>
+
+  <!-- Latest W3schools CSS-->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <!-- Latest W3schools JavaScript -->
+  <script src="https://www.w3schools.com/lib/w3.js"></script>
+
+  </head>
+<body class="w3-container">
+  <h1 id="header">JS_Run_It! Browser Sandbox</h1>
+  <form>
+    <div id="scratch" class="w3-container">
+      <p id="introduction">
+      Type or paste a JavaScript program into the box below. (id="scriptArea") <br >
+      Then click <input type="button" value="Run" id="runButtonTop" class="w3-button w3-gray" />
+      here or below the paste area to try it.
+      </p>
+        <div class="w3-panel">
+          <p>
+            <textarea id="scriptArea" rows="5" class="w3-input w3-border"></textarea>
+          </p>
+        </div>
+        <div id="buttonPanel1" class="w3-panel">
+          <input type="button" value="Run" id="runButtonBottom" class="w3-button w3-gray" />
+          <input type="reset" value="Clear Script" id="clearButton1" class="w3-button w3-red" />
+        </div>
+    <!-- </div> -->
+      <p id="resolution">Results from above can be sent to the box below (id="resultArea"). Or, try outputs like prompt and alert.</p>
+    <div class="w3-panel">
+      <p>
+        <textarea id="resultArea" rows="5" class="w3-input w3-border"></textarea>
+      </p>
+    </div>
+      <div id="buttonPanel2" class="w3-panel">
+        <input type="button" value="Clear Result" id="clearButton2" onclick="myFunction2()" class="w3-button w3-red" />
+      </div>
+    <p id="footer">Footer: Example JavaScript code (can be pasted even if minified, so try it, OK!):<br />
+    <code>
+    function toCelsius(fahrenheit) {
+	    return (5/9) * (fahrenheit-32);
+	}
+	document.getElementById("resultArea").innerHTML = "The answer in degrees Celsius is: " +  toCelsius(68);
+	alert ("The answer in degrees Celsius is: " + toCelsius(68));
+	// expanded form of the simpler outputs that follow
+	// document.getElementById("resultArea").innerHTML = toCelsius(68);
+	// alert (toCelsius(68));
+    // answer in celsius is 20
+    </code>
+    <br />
+    or <br />
+    <code>document.getElementById("resultArea").innerHTML = "The answer to the parse is: " +  parseInt('0x10');</code><br />
+    Copy the above code into the input box and see if it will run! What did you expect?
+    </p>
+    </div>
+  </form>
+  <script>
+
+  		function myFunction1() {
+  		    document.getElementById("scriptArea").reset();
+  		};
+
+  		function myFunction2() {
+  		    document.getElementById("resultArea").innerHTML = null;
+		};
+
+
+  </script>
+    <!-- W3schools core JavaScript could be linked here to possibly load faster -->
+    <!-- Latest W3schools JavaScript -->
+    <!-- <script src="https://www.w3schools.com/lib/w3.js"></script> -->
+    <!-- Based in part on code from the view-source for: http://javascript.cs.lmu.edu/runner/ -->
+    <!-- Modifications by James S. deBettencourt, PhD to use simple responsive design from W3Schools.com -->
+    <!-- Latest modifications March 18, 2019 -->
+  </body>
+</html>
